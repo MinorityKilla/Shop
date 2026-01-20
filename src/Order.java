@@ -1,6 +1,8 @@
 import java.util.List;
 
 public class Order {
+
+     // SRP: класс отвечает только за заказ и его состояние
     private final List<Product> products;
     private Status status = Status.CREATED;
 
