@@ -1,4 +1,6 @@
 public class Product {
+
+    // SRP: класс хранит только данные о товаре
     private final String name;
     private final double price;
 
