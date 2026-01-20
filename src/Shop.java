@@ -1,11 +1,14 @@
 import java.util.Scanner;
 
 public class Shop {
+
+    // Избегание магических чисел: все команды вынесены в именованные константы
     private static final int EXIT = 0;
     private static final int SHOW_PRODUCTS = 1;
     private static final int FILTER_BY_PRICE = 2;
     private static final int MAKE_ORDER = 3;
-
+    
+    // Single Responsibility Principle: Shop управляет только взаимодействием с пользователем
     private final Catalog catalog = new Catalog();
     private final Cart cart = new Cart();
     private final Scanner scanner = new Scanner(System.in);
@@ -29,6 +32,9 @@ public class Shop {
     private void filter() {
         System.out.print("Макс цена: ");
         double price = scanner.nextDouble();
+
+        // Strategy + DIP:
+        // передаётся стратегия фильтрации через интерфейс ProductFilter
         catalog.showFiltered(p -> p.getPrice() <= price);
     }
 
